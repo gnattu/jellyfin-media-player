@@ -16,7 +16,7 @@ jobs:
         ./download_webclient.sh
         sed -i '' 's/<body>/<body style="overscroll-behavior: none;">/' ./build/dist/index.html
         cd build
-        cmake -GNinja -DQTROOT=$Qt5_DIR -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=output ..
+        cmake -GNinja -DQTROOT=/usr/local/opt/qt@5 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=output ..
         ninja install
     - name: Fix library paths and create dmg
       run: |

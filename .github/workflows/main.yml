@@ -7,16 +7,10 @@ jobs:
     runs-on: macos-12
     steps:
     - uses: actions/checkout@v4
-    - name: Install Qt 5.15.2
-      uses: jurplel/install-qt-action@v3
-      with:
-        version: "5.15.2"
-        modules: "qtwebengine"
-        setup-python: 'false'
     - name: Install dependencies
       run: |
         brew update
-        brew install ninja mpv || true
+        brew install ninja mpv qt@5 || true
     - name: Release build
       run: |
         ./download_webclient.sh
